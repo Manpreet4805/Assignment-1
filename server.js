@@ -13,7 +13,7 @@
 ********************************************************************************/
 
 const express = require('express');
-const projectData = require('./modules/projects');
+const projectData = require('./modules/projects.js');
 
 const app = express();
 
@@ -56,3 +56,4 @@ projectData.initialize()
 
 // Export app instead of listening (for Vercel)
 module.exports = app;
+
