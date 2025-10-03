@@ -1,15 +1,15 @@
-// modules/projects.js
+
 
 const fs = require('fs');
 const path = require('path');
 
-let projects = []; // this will be populated in initialize()
+let projects = [];
 
-// Read JSON data synchronously (once during initialization)
+
 const sectorData = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/sectorData.json')));
 const projectData = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/projectData.json')));
 
-// Function to initialize the projects array with sector name added
+
 function initialize() {
     return new Promise((resolve, reject) => {
         try {
@@ -23,7 +23,7 @@ function initialize() {
                         sector: sector.sector_name
                     });
                 } else {
-                    // If sector not found, still push project with "Unknown" sector
+                    
                     projects.push({
                         ...project,
                         sector: "Unknown"
@@ -38,7 +38,7 @@ function initialize() {
     });
 }
 
-// Return all projects
+
 function getAllProjects() {
     return new Promise((resolve, reject) => {
         if (projects.length === 0) {
@@ -49,7 +49,7 @@ function getAllProjects() {
     });
 }
 
-// Return a project by ID
+
 function getProjectById(projectId) {
     return new Promise((resolve, reject) => {
         const project = projects.find(p => p.id === projectId);
@@ -61,7 +61,7 @@ function getProjectById(projectId) {
     });
 }
 
-// Return projects by sector (partial match, case-insensitive)
+
 function getProjectsBySector(sector) {
     return new Promise((resolve, reject) => {
         const matchedProjects = projects.filter(p =>
@@ -76,7 +76,7 @@ function getProjectsBySector(sector) {
     });
 }
 
-// Export all functions
+
 module.exports = {
     initialize,
     getAllProjects,
