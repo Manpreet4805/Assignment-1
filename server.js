@@ -40,7 +40,7 @@ app.get("/solutions/projects/id-demo", (req, res) => {
 
 
 app.get("/solutions/projects/sector-demo", (req, res) => {
-    projectData.getProjectsBySector("agriculture")
+    projectData.getProjectsBySector("vfe")
         .then((projects) => res.json(projects))
         .catch((err) => res.status(404).send(err));
 });
@@ -56,6 +56,7 @@ projectData.initialize()
 
 
 module.exports = app;
+
 
 
 
