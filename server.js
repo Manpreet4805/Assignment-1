@@ -33,14 +33,14 @@ app.get("/solutions/projects", (req, res) => {
 
 
 app.get("/solutions/projects/id-demo", (req, res) => {
-    projectData.getProjectById(36)
+    projectData.getProjectById(3)
         .then((project) => res.json(project))
         .catch((err) => res.status(404).send(err));
 });
 
 
 app.get("/solutions/projects/sector-demo", (req, res) => {
-    projectData.getProjectsBySector("vfe")
+    projectData.getProjectsBySector("agriculture")
         .then((projects) => res.json(projects))
         .catch((err) => res.status(404).send(err));
 });
@@ -56,6 +56,7 @@ projectData.initialize()
 
 
 module.exports = app;
+
 
 
 
